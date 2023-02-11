@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: vendor-pipelines-vote-api-jspw
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: vendor-pipelines-vote-api-jspw
+    app.kubernetes.io/part-of: my-api-app
+  name: vendor-pipelines-vote-api-jspw
+  namespace: rhn-gps-rspazzol-tenant
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: vendor-pipelines-vote-api-jspw
+    weight: 100
+status: {}
