@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: fga-java-5yyq
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: fga-java-5yyq
+    app.kubernetes.io/part-of: my-api-app
+  name: fga-java-5yyq
+  namespace: rhn-gps-rspazzol-tenant
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: fga-java-5yyq
+    weight: 100
+status: {}
